@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户登录页面</title>
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<script>
+			function changeCode() {
+					var codeImg=document.getElementById("verifyCode");
+					codeImg.src="servlet/CreateVerifyImageController?t="+Math.random();
+			}
+		</script>
+		
+	</head>
+	<body>
+
+			<form action="servlet/LoginController"  method="post">
+				<div id="bigbox">
+					<div id="first">
+						<p> 账号登录页面</p>	
+					</div>
+					
+					<p><input type="text" name="username" id="username"  placeholder="请输入用户名" /></p>
+					<p><input type="text" name="password" id="password"  placeholder="请输入密码"/></p>
+					
+					<div id="smallbox">
+						<input type="text" name="vcode" id="vcode" placeholder="请输入验证码"/>
+						<img  src="servlet/CreateVerifyImageController" onclick="changeCode()" id="verifyCode" >
+					</div>
+						
+					<input type="submit" value="点击登录" id="bn">
+
+				</div>
+			</form>
+		
+		
+	</body>
+</html>
